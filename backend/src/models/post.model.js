@@ -7,14 +7,13 @@ const postSchema = new mongoose.Schema({
     },
     imgUrl:{
         type:String,
-        required:[true,"imageUrl is required to create an post"]
+        required:[true,"Image url is required to create an post"]
     },
     user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"users",
-        required:[true,"user is required to create an post"]
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"users"
     }
-})
+},{timestamps:true})
 
 const postModel = mongoose.model("posts",postSchema)
 
