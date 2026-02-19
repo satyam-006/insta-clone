@@ -3,12 +3,36 @@ const postRouter = express.Router()
 const multer = require("multer")
 const upload = multer({storage:multer.memoryStorage()})
 const identifyUser = require("../middlewares/auth.middleware")
-const { createPostController, getPostController ,getPostDetailsController} = require("../controllers/post.controller")
+const { createPostController, getPostController ,getPostDetailsController, likePostController} = require("../controllers/post.controller")
 
+
+/**
+ * @route POST /api/posts/
+ * @description Create a new post
+ * @access Private
+ */
 postRouter.post("/",upload.single("image"),identifyUser,createPostController)
 
+
+/** 
+ * @route GET /api/posts/
+ * @description Get all posts of the user
+ * @access Private
+ */
 postRouter.get("/",identifyUser,getPostController)
 
+/**
+ * @route GET /api/posts/details/:postId
+ * @description Get details of a specific post
+ * @access Private
+ */
 postRouter.get("/details/:postId",identifyUser,getPostDetailsController)
+
+/**
+ * @route POST /api/posts/like/:postId
+ * @description Like a post
+ * @access Private
+ */
+postRouter.post("/like/:postId",identifyUser,likePostController)
 
 module.exports = postRouter
