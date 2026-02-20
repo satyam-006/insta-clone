@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router";
 
@@ -10,24 +9,6 @@ const Register = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const res = axios
-      .post(
-        "http://localhost:3000/api/auth/register",
-        {
-          username,
-          email,
-          password,
-        },
-        {
-          withCredentials: true,
-        },
-      )
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
   return (
     <main>
