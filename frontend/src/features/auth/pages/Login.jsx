@@ -7,21 +7,24 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { handleLogin, loading } = useAuth();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  const { user, loading, handleLogin } = useAuth();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
-    handleLogin(username, password).then((res) => {
-      console.log(res);
-      navigate("/");
-    });
+    await handleLogin(username, password);
+    navigate("/")
+    
   };
+
+  if (loading) {
+    return (
+      <main>
+        <h1>Loading...</h1>
+      </main>
+    );
+  }
 
   return (
     <main>
@@ -29,25 +32,28 @@ const Login = () => {
         <h1>Login</h1>
         <form onSubmit={handleFormSubmit}>
           <input
-            onInput={(e) => setUsername(e.target.value)}
+            onInput={(e) => {
+              setUsername(e.target.value);
+            }}
             type="text"
             name="username"
+            id="username"
             placeholder="Enter username"
           />
           <input
-            onInput={(e) => setPassword(e.target.value)}
+            onInput={(e) => {
+              setPassword(e.target.value);
+            }}
             type="password"
             name="password"
+            id="password"
             placeholder="Enter password"
           />
-          <button>Login</button>
-          <p>
-            You don't have account?{" "}
-            <Link className="toggleAuthForm" to={"/register"}>
-              Register
-            </Link>
-          </p>
+          <button className="button button-primary">Login</button>
         </form>
+        <p>
+          Don't have an account ? <Link to={"/register"}>Create one.</Link>
+        </p>
       </div>
     </main>
   );
