@@ -77,7 +77,7 @@ async function likePostController(req, res) {
     });
   }
 
-  const isUserAlreadyLikedPost = await likeModel.findOne({post:postId});
+  const isUserAlreadyLikedPost = await likeModel.findOne({ post: postId });
 
   if (isUserAlreadyLikedPost) {
     return res.status(200).json({
@@ -97,9 +97,31 @@ async function likePostController(req, res) {
   });
 }
 
+async function getFeedController(req, res) {
+  const user = req.user;
+
+  const posts = await Promise.all(
+    (await postModel.find().populate("user").lean()).map(async (post) => {
+      const isLiked = await likeModel.findOne({
+        user: user.id,
+        post: post._id,
+      });
+
+      post.isLiked = Boolean(isLiked);
+      return post;
+    }),
+  );
+
+  res.status(200).json({
+    message: "Posts fetched successfully",
+    posts,
+  });
+}
+
 module.exports = {
   createPostController,
   getPostController,
   getPostDetailsController,
   likePostController,
+  getFeedController,
 };
