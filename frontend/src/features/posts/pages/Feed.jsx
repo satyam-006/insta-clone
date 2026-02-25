@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import Post from "../components/Post";
 import { usePost } from "../hooks/usePost";
 import "../style/feed.scss";
+import Nav from "../../shared/components/Nav";
+import Follows from "../../users/pages/Follows";
 
 const Feed = () => {
-  const { loading, feed, handleGetFeed } = usePost();
+  const { loading, feed, handleGetFeed, handlePostLike, handlePostUnLike } =
+    usePost();
 
   useEffect(() => {
     handleGetFeed();
@@ -19,14 +22,23 @@ const Feed = () => {
   }
 
   return (
-    <main className="feed-page">
-      <div className="feed">
-        <div className="posts">
-          {
-            feed.map((post)=>{
-              return <Post user={post.user} post={post}/>
-            })
-          }
+    <main className="feed-container">
+      <Follows/>
+      <div className="feed-content">
+        <Nav />
+        <div className="feed">
+          <div className="posts">
+            {feed.map((post) => {
+              return (
+                <Post
+                  user={post.user}
+                  post={post}
+                  handlePostLike={handlePostLike}
+                  handlePostUnLike={handlePostUnLike}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </main>
