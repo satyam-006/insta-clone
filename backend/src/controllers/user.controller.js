@@ -1,6 +1,41 @@
 const followModel = require("../models/follow.model");
 const userModel = require("../models/user.model");
 
+async function getUserController(req, res) {
+  userId = req.user.id;
+
+  const users = await Promise.all(
+    (await userModel.find().lean()).map(async (user) => {
+      const isFollow = await followModel.findOne({
+        follower: userId,
+        followee: user._id,
+      });
+
+      const isFollower = await followModel.findOne({
+        follower: user._id,
+        followee: userId,
+      });
+
+      user.isFollow = Boolean(isFollow);
+      user.isFollower = Boolean(isFollower);
+      return user;
+    }),
+  );
+
+  if (!users) {
+    return res.status(404).json({
+      message: "No users found",
+    });
+  }
+
+  const filteredUsers = users.filter((user) => user._id != userId);
+
+  res.status(200).json({
+    message: "Users fetched successfully",
+    users: filteredUsers,
+  });
+}
+
 async function followUserController(req, res) {
   const followerId = req.user.id;
   const followeeId = req.params.userId;
@@ -65,4 +100,8 @@ async function unfollowUserController(req, res) {
   });
 }
 
-module.exports = { followUserController, unfollowUserController };
+module.exports = {
+  followUserController,
+  unfollowUserController,
+  getUserController,
+};

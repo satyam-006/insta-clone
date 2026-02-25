@@ -1,7 +1,15 @@
 const express = require("express")
 const identifyUser = require("../middlewares/auth.middleware")
-const { followUserController, unfollowUserController } = require("../controllers/user.controller")
+const { followUserController, unfollowUserController, getUserController } = require("../controllers/user.controller")
 const userRouter = express.Router()
+
+/**
+ * @route GET /api/users/
+ * @description Get all users
+ * @access Private
+ */
+
+userRouter.get("/",identifyUser,getUserController)
 
 /**
  * @route POST /api/users/follow/:userId
