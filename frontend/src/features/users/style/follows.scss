@@ -1,56 +1,9 @@
-.follows-content{
+.follows-container{
     width: 18%;
     height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
 
-    padding-inline: 1rem;
-
-    .followers{
-        margin-top: 5rem;
-    }
-
-    h4{
-        margin-bottom: 0.5rem;
-        color: rgb(196, 6, 47);
-    }
-
-    .follower,.following,.suggestion{
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.35rem;
-        img {
-            width: 2rem;
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-            object-fit: cover;
-            background-color: aqua;
-          }
-
-    }
-
-    .suggestion,.following{
-        justify-content: space-between;
-    }
-
-    .left{
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .button{
-        padding: 0.35rem 0.5rem;
-        font-size: 0.75rem;
-        border-radius: 5rem;
-    }
-
-    .follow-btn{
-        background: transparent !important;
-        border: 1.5px solid #d2092e;
-        color: #d2092e !important;
-    }
-
+    h4 {
+    font-size: 0.9rem;
+    color: rgb(69, 69, 69);
+  }
 }

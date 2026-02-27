@@ -1,0 +1,57 @@
+.follower {
+  width: 100;
+  padding-inline: 1rem;
+  padding-top: 1.5rem;
+
+  .follower-container {
+    width: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-block: 0.75rem;
+
+    .followee {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .followee-detail {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        img {
+          width: 2.4rem;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          background-color: aquamarine;
+        }
+        p {
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+      }
+
+      button{
+        height: fit-content ;
+        border: none;
+        outline: none;
+        padding-inline: 0.35rem;
+        padding-block: 0.35rem;
+        font-size: 0.75rem;
+        border-radius: 0.35rem;
+        background-color: #0090EE;
+        cursor: pointer;
+        transition: all ease-in-out 0.3s;
+
+        &:active{
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}
+
+.suggestion{
+  padding-top: 0.5rem;
+}

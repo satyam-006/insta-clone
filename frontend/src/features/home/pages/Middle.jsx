@@ -9,7 +9,7 @@ const Middle = () => {
     <div className='middle'>
         <TopNav/>
         <Stories/>
-        <Feed/>
+        {/* <Feed/> */}
     </div>
   )
 }
