@@ -13,35 +13,25 @@ const Feed = () => {
     handleGetFeed();
   }, []);
 
-  if (loading || !feed) {
-    return (
-      <main>
-        <h1>Feed is loading...</h1>
-      </main>
-    );
-  }
+  // if (loading || !feed) {
+  //   return (
+  //     <main>
+  //       <h1>Feed is loading...</h1>
+  //     </main>
+  //   );
+  // }
 
   return (
-    <main className="feed-container">
-      <Follows/>
-      <div className="feed-content">
-        <Nav />
-        <div className="feed">
-          <div className="posts">
-            {feed.map((post) => {
-              return (
-                <Post
-                  user={post.user}
-                  post={post}
-                  handlePostLike={handlePostLike}
-                  handlePostUnLike={handlePostUnLike}
-                />
-              );
-            })}
-          </div>
+    <div className="feed-container">
+      <div className="top-part">
+        <h1>Feeds</h1>
+        <div className="filter-container">
+          <button className="latest-btn">Latest</button>
+          <button className="popular-btn">Popular</button>
         </div>
       </div>
-    </main>
+      
+    </div>
   );
 };
 

@@ -1,0 +1,95 @@
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-container {
+  width: 100%;
+  background-color: #f1eeee53;
+
+  padding-inline: 6rem;
+  padding-block: 1.5rem;
+
+  .story-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    .watch {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+  }
+
+  .story-box {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 1rem;
+
+    .story-create{
+
+        @include flex-center();
+        flex-direction: column;
+        gap: 0.5rem;
+
+        p{
+            font-size: 0.80rem;
+            font-weight: 500;
+            color: rgba(156, 153, 153, 0.737)
+        }
+    }
+
+    .wrapper {
+      background: conic-gradient(from 0deg, #8906c5, #f7309a, #f49d5a, #8906c5);
+      @include flex-center();
+      border-radius: 50%;
+      width: 4rem;
+    }
+
+    .create-story {
+      background-color: white;
+      transform: scale(0.92);
+      width: 4rem;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      @include flex-center();
+
+      i {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+    }
+
+    .user-stories{
+        @include flex-center();
+        flex-direction: column;
+        gap: 0.5rem;
+
+        p{
+            font-size: 0.80rem;
+            font-weight: 500;
+            color: rgba(156, 153, 153, 0.737)
+        }
+    }
+
+    .user-story {
+      width: 4rem;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      @include flex-center();
+
+      img {
+        width: 4rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+}

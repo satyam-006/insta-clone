@@ -1,0 +1,64 @@
+.top-nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 6rem;
+  padding-block: 1rem;
+  border-bottom: 2px solid #e8e4e459;
+
+  .search-bar {
+    background-color: #f1eeee53;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    position: relative;
+
+    input {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      width: 100%;
+      padding-inline: 2.5rem;
+      padding-block: 0.55rem;
+      font-size: 0.9rem;
+      border-radius: 5rem;
+      border: 2px solid #d6d4d459;
+
+      &:focus,
+      &:hover {
+        border-color: #f01039;
+      }
+    }
+
+    i {
+      position: absolute;
+      font-size: 1.2rem;
+      color: #aba7a7;
+      cursor: pointer;
+
+      &:first-child {
+        left: 1rem;
+      }
+      &:last-child {
+        right: 1rem;
+      }
+    }
+
+  }
+
+  .create-post-btn{
+        padding-inline: 1rem;
+        padding-block: 0.70rem;
+        border: none;
+        outline: none;
+        border-radius: 5rem;
+        background:linear-gradient(to right,#FF4836,#ee227e);
+        color: rgb(244, 242, 242);
+        font-weight: 600;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+}

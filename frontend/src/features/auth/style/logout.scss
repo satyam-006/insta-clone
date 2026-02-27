@@ -1,0 +1,17 @@
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-inline: 1.5rem;
+  padding-block: 1.5rem;
+
+  h4{
+    color: rgba(156, 153, 153, 0.737);
+  }
+
+  img {
+    width: 1.25rem;
+    aspect-ratio: 1/1;
+    filter: invert(55%);
+  }
+}

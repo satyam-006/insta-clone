@@ -8,22 +8,60 @@ main {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  .form-main{
+    display: flex;
+    width: 40%;
+  }
 
   .form-container {
     min-width: 350px;
     @include flex-column($gap: 1rem);
+
+    h1{
+      font-family: insta-font;
+      font-size: 2.5rem;
+      text-align: center;
+      background: linear-gradient(90deg, #f9ce34,  #ee2a7b,#6228d7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 500;
+    }
   }
 
   form {
     @include flex-column($gap: 1rem);
 
+    
+
     input {
-      border: none;
+      border: 1.5px solid #f691a4aa;
       outline: none;
       padding-inline: 1rem;
       padding-block: 0.75rem;
       border-radius: 0.75rem;
+     
+      &:focus,&:hover {
+        border-color: #f01039;
+      }
     }
+
+    .input-group{
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      
+      input{
+        width: 100%;
+      }
+      i{
+        position: absolute;
+        right: 1rem;
+        cursor: pointer;
+      }
+    }
+
   }
 }

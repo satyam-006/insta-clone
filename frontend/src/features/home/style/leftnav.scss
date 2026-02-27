@@ -1,0 +1,24 @@
+.left-nav {
+  width: 18%;
+  height: 100vh;
+  border-right: 2px solid #e8e4e459;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    padding-inline: 1.25rem;
+    padding-block: 1rem;
+
+    img {
+      width: 1.8rem;
+      aspect-ratio: 1/1;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-family: insta-font;
+      font-weight: 400;
+    }
+  }
+}

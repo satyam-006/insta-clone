@@ -1,5 +1,5 @@
 import React from "react";
-import "../nav.scss";
+import "../style/nav.scss";
 import { useNavigate } from "react-router";
 
 const Nav = () => {

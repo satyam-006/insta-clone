@@ -1,0 +1,43 @@
+.navigation {
+  border-bottom: 2px solid #e8e4e459;
+  padding-block: 1.5rem;
+
+  .navlink {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    position: relative;
+
+    h4 {
+      color: rgba(156, 153, 153, 0.737)
+    }
+
+    .highlight-bar {
+      width: 0.75rem;
+      height: 2rem;
+      border-radius: 2rem;
+      position: absolute;
+      left: -8px;
+      visibility: hidden;
+      background-color: #f80f74;
+    }
+
+    i {
+      font-size: 1.25rem;
+      color: rgb(156, 153, 153);
+    }
+  }
+
+  .active {
+    .highlight-bar {
+      visibility: visible;
+    }
+
+    i,
+    h4 {
+      color: #f80f74;
+    }
+  }
+}

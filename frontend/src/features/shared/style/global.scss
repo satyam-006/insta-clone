@@ -1,5 +1,10 @@
 @use "./button.scss";
 
+@font-face {
+  font-family: insta-font;
+  src: url("../../../assets/fonts/Fontspring-DEMO-blue_vinyl_regular_ps_ot.otf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +14,6 @@ html,
 body,
 #root {
   width: 100%;
-  color: whitesmoke;
-  background-color: rgb(20, 20, 20);
   font-family:
     system-ui,
     -apple-system,
@@ -27,7 +30,7 @@ body,
 
 a{
     text-decoration: none;
-    color: #d2092e;
+    color: #f0146f;
 }
 
 
