@@ -1,9 +1,36 @@
-.image-file-label{
-    padding-inline: 1rem;
-      padding-block: 0.75rem;
-      border-radius: 0.75rem;
-      background-color: white;
-      color: rgb(28, 28, 28);
-      font-size: 0.85rem;
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-post {
+  width: 100%;
+  height: 100vh;
+  @include flex-center();
+
+  .drag-image {
+    width: 450px;
+    height: 250px;
+    border-radius: 1rem;
+    border: 2px dashed #8e8d8dc7;
+    @include flex-center();
+    transition: all cubic-bezier(0.215, 0.610, 0.355, 1) 0.2s;
+
+    &.drag-over{
+      transform: scale(1.02);
+      border-color: #f01039;
+    }
+
+    p{
+      pointer-events: none;
+    }
+
+    label{
+      color: #0a7bc6;
+      pointer-events: all;
       cursor: pointer;
+    }
+
+  }
 }

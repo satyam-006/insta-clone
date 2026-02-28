@@ -5,10 +5,40 @@ import { useNavigate } from "react-router";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
-  const postImageFileInputRef = useRef(null);
+  const [file, setFile] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [image, setImage] = useState(null);
   const { loading, handleCreatePost } = usePost();
 
   const navigate = useNavigate();
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+
+    if (file && file.type.startsWith("image/")) {
+      setFile(file);
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+    setIsDragging(false);
+  };
+
+  const handleInputSelectedFile = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,15 +54,36 @@ const CreatePost = () => {
   }
 
   return (
-    <main>
+    <main className="create-post">
       <div className="form-container">
-        <h1>Create Post</h1>
+        <h1>Instagram</h1>
+        <h2>Create Post</h2>
         <form onSubmit={handleSubmit}>
-          <label className="image-file-label" htmlFor="postImage">
-            Select Image
-          </label>
+          <div
+            className={`drag-image ${isDragging ? "drag-over" : ""}`}
+            onDragOver={(e) => {
+              e.preventDefault();
+              setIsDragging(true);
+            }}
+            onDragLeave={() => {
+              setIsDragging(false);
+            }}
+            onDrop={handleDrop}
+            style={{
+              height: "250px",
+              backgroundImage: image ? `url(${image})` : "none",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <p style={{ display: image ? "none" : "" }}>
+              Drag & Drop or <label htmlFor="postImage">Choose file </label>to
+              upload
+            </p>
+          </div>
           <input
-            ref={postImageFileInputRef}
+            onChange={handleInputSelectedFile}
             hidden
             type="file"
             name="postImage"
