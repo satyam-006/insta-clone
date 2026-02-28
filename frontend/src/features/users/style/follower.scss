@@ -24,7 +24,7 @@
           width: 2.4rem;
           aspect-ratio: 1/1;
           border-radius: 50%;
-          background-color: aquamarine;
+          object-fit: cover;
         }
         p {
           font-size: 0.9rem;
@@ -41,6 +41,7 @@
         font-size: 0.75rem;
         border-radius: 0.35rem;
         background-color: #0090EE;
+        color: white;
         cursor: pointer;
         transition: all ease-in-out 0.3s;
 

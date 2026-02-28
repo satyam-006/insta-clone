@@ -4,6 +4,7 @@ import Register from "./features/auth/pages/Register";
 import Feed from "./features/posts/pages/Feed";
 import CreatePost from "./features/posts/pages/CreatePost";
 import Home from "./features/home/pages/Home";
+import UserDeatails from "./features/users/pages/UserDeatails";
 
 export const router = createBrowserRouter([
   {
@@ -22,5 +23,10 @@ export const router = createBrowserRouter([
   {
     path:"/create-post",
     element:<CreatePost/>
+  },
+  {
+    path:"/user/detailes/:userId",
+    element:<UserDeatails/>
   }
+  
 ]);

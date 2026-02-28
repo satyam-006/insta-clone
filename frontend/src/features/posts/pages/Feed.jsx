@@ -38,7 +38,7 @@ const Feed = () => {
                 src="https://images.unsplash.com/photo-1771919005587-d49d985daa0b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
-              <h3>username</h3>
+              <h3>perdana</h3>
             </div>
             <i class="ri-more-2-fill"></i>
           </div>
