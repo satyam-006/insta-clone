@@ -31,7 +31,7 @@ const UserDeatails = () => {
         <div className="profile-content">
           <div className="username">
             <h2>jordan</h2>
-            <button>Follow</button>
+            <button className="button button-primary">Follow</button>
           </div>
           <div className="user-stats">
             <p>

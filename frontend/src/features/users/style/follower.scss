@@ -34,20 +34,10 @@
 
       button{
         height: fit-content ;
-        border: none;
-        outline: none;
         padding-inline: 0.35rem;
         padding-block: 0.35rem;
         font-size: 0.75rem;
         border-radius: 0.35rem;
-        background-color: #0090EE;
-        color: white;
-        cursor: pointer;
-        transition: all ease-in-out 0.3s;
-
-        &:active{
-          transform: scale(0.9);
-        }
       }
     }
   }

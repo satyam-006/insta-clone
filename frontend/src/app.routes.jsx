@@ -5,6 +5,8 @@ import Feed from "./features/posts/pages/Feed";
 import CreatePost from "./features/posts/pages/CreatePost";
 import Home from "./features/home/pages/Home";
 import UserDeatails from "./features/users/pages/UserDeatails";
+import AllFollows from "./features/users/pages/AllFollows";
+import AccountSetting from "./features/users/pages/AccountSetting";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ export const router = createBrowserRouter([
   {
     path:"/user/detailes/:userId",
     element:<UserDeatails/>
+  }
+  ,{
+    path:"/user/follows/:userId",
+    element:<AllFollows/>
+  },
+  {
+    path:"/user/settings/:userId",
+    element:<AccountSetting/>
   }
   
 ]);

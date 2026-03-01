@@ -3,14 +3,21 @@
     padding-block: 0.75rem;
     border: none;
     outline: none;
-    border-radius: 0.75rem;
-    transition: all ease-in-out 0.3s;
+    border-radius: 0.5rem;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
     cursor: pointer;
+    font-weight: 600;
+
 
     &.button-primary{
+        background-color: #0090EE;
+        color: white;
+    }
+
+    &.button-secondary{
         background-color: #f0146f;
         color: rgb(250, 246, 246);
-        font-weight: 600;
+        
     }
     
     &:active{

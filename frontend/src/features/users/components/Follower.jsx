@@ -10,7 +10,7 @@ const Follower = () => {
             <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2ZpbGUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" alt="" />
             <p>john</p>
           </div>
-          <button>Follow Back</button>
+          <button className="button button-primary">Follow Back</button>
         </div>
         <div className="followee">
           <div className="followee-detail">

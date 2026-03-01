@@ -28,9 +28,15 @@ body,
     sans-serif;
 }
 
-a{
-    text-decoration: none;
-    color: #f0146f;
+a {
+  text-decoration: none;
+  color: #f0146f;
 }
 
+button {
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.3s;
 
+  &:active {
+    transform: scale(0.9);
+  }
+}
