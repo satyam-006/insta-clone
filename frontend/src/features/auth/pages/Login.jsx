@@ -38,7 +38,7 @@ const Login = () => {
           <h2>Login</h2>
           <form onSubmit={handleFormSubmit}>
             <input
-              onInput={(e) => {
+              onChange={(e) => {
                 setUsername(e.target.value);
               }}
               type="text"
@@ -64,7 +64,7 @@ const Login = () => {
                 ></i>
               )}
             </div>
-            <button className="button button-primary">Login</button>
+            <button className="button button-secondary">Login</button>
           </form>
           <p>
             Don't have an account ? <Link to={"/register"}>Create one.</Link>

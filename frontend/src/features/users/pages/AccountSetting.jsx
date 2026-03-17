@@ -19,7 +19,7 @@ const AccountSetting = () => {
             <p>Edit your personal information</p>
           </div>
           <div className="imgdiv">
-            <img src="" alt="" />
+            <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_rp_progressive&w=740&q=80" alt="" />
             <label className="button" htmlFor="profileImage">Upload An Image</label>
             <input
               type="file"
@@ -38,10 +38,10 @@ const AccountSetting = () => {
               type="text"
               name="usernem"
               placeholder="username"
-              id="username"
+              id="Username"
             />
             <label htmlFor="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="email" />
+            <input type="text" id="email" name="email" placeholder="Email" />
             <label htmlFor="bio">Bio</label>
             <textarea name="bio" id="bio"></textarea>
             <button className="button button-primary">Save changes</button>

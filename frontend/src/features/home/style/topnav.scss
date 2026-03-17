@@ -1,11 +1,14 @@
 .top-nav {
-  width: 100%;
+  width: 64%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-inline: 6rem;
   padding-block: 1rem;
+  background-color: white;
   border-bottom: 2px solid #e8e4e459;
+  position: fixed;
+  z-index: 99;
 
   .search-bar {
     background-color: #f1eeee53;
@@ -59,6 +62,10 @@
         font-weight: 600;
         display: flex;
         gap: 0.5rem;
+
+        &:hover{
+          cursor: pointer;
+        }
     }
 
 }

@@ -2,7 +2,7 @@ export const Post = ({ user, post, handlePostLike, handlePostUnLike }) => {
   return (
     <div className="post">
       <div className="user">
-        <div className="img-wrapper">
+         <div className="img-wrapper">
           <img src={user?.profileImage} alt="" />
         </div>
         <p>{user?.username}</p>

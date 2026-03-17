@@ -7,11 +7,12 @@ import Home from "./features/home/pages/Home";
 import UserDeatails from "./features/users/pages/UserDeatails";
 import AllFollows from "./features/users/pages/AllFollows";
 import AccountSetting from "./features/users/pages/AccountSetting";
+import Protected from "./features/auth/components/Protected";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: <Protected><Home/></Protected>,
   },
   
   {
@@ -24,19 +25,23 @@ export const router = createBrowserRouter([
   },
   {
     path:"/create-post",
-    element:<CreatePost/>
+    element:<Protected><CreatePost/></Protected>
   },
   {
     path:"/user/detailes/:userId",
-    element:<UserDeatails/>
+    element:<Protected><UserDeatails/></Protected>
   }
   ,{
     path:"/user/follows/:userId",
-    element:<AllFollows/>
+    element:<Protected><AllFollows/></Protected>
   },
   {
     path:"/user/settings/:userId",
-    element:<AccountSetting/>
+    element:<Protected><AccountSetting/></Protected>
+  },
+  {
+    path:"*",
+    element:<h1>OOP'S</h1>
   }
   
 ]);

@@ -9,6 +9,7 @@ const CreatePost = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [image, setImage] = useState(null);
   const { loading, handleCreatePost } = usePost();
+  const postImageFileInputRef = useRef(null)
 
   const navigate = useNavigate();
 
@@ -83,6 +84,7 @@ const CreatePost = () => {
             </p>
           </div>
           <input
+          ref={postImageFileInputRef}
             onChange={handleInputSelectedFile}
             hidden
             type="file"

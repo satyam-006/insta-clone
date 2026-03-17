@@ -12,14 +12,21 @@ const AllFollows = () => {
         <div className="follows">
             <div className="user-detail">
                 <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_rp_progressive&w=740&q=80" alt="" />
-                <p>username</p>
+                <p>sam</p>
             </div>
-            <button>Follow</button>
+            <button className="button button-primary">Follow</button>
         </div>
         <div className="follows">
             <div className="user-detail">
                 <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_rp_progressive&w=740&q=80" alt="" />
-                <p>username</p>
+                <p>karan</p>
+            </div>
+            <button className="button button-primary">Follow</button>
+        </div>
+        <div className="follows">
+            <div className="user-detail">
+                <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_rp_progressive&w=740&q=80" alt="" />
+                <p>john</p>
             </div>
             <button className="button button-primary">Follow</button>
         </div>

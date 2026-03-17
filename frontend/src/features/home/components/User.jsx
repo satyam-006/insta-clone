@@ -1,22 +1,33 @@
 import React from "react";
 import "../style/user.scss";
+import { useEffect } from "react";
+import { useAuth } from "../../auth/hooks/useAuth";
+import { useContext } from "react";
+import { AuthContext } from "../../auth/auth.context";
+import { PostContext } from "../../posts/post.context";
 
 const User = () => {
+
+  const {user} = useContext(AuthContext)
+  const {postCountValue} = useContext(PostContext)
+  console.log(postCountValue);
+  
+
   return (
     <div className="user">
       <div className="image-wrapper">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkAJEkJQ1WumU0hXNpXdgBt9NUKc0QDVIiaw&s"
+          src={user.profileImage}
           alt="profile-image"
         />
       </div>
       <div className="user-detail">
-        <h4>Vera Cherry</h4>
-        <p>Bermen,Germany</p>
+        <h4>{user.username}</h4>
+        <p>{user?.location}</p>
       </div>
       <div className="user-stats">
         <div className="stats posts">
-          <h4>500</h4>
+          <h4>{postCountValue}</h4>
           <p>posts</p>
         </div>
         <div className="stats followers">

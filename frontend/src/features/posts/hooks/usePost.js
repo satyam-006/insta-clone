@@ -4,6 +4,7 @@ import {
   createPost,
   postLike,
   postUnLike,
+  postCount
 } from "../services/post.api";
 import { PostContext } from "../post.context";
 import { useEffect } from "react";
@@ -11,7 +12,7 @@ import { useEffect } from "react";
 export function usePost() {
   const context = useContext(PostContext);
 
-  const { loading, setLoading, post, setPost, feed, setFeed } = context;
+  const { loading, setLoading, post, setPost, feed, setFeed, postCountValue,setPostCountValue } = context;
 
   const handleGetFeed = async () => {
     setLoading(true);
@@ -37,12 +38,21 @@ export function usePost() {
     await handleGetFeed();
   };
 
+  const handlePostCount = async ()=>{
+    const data = await postCount()
+    setPostCountValue(data.posts.length);
+    
+  }
+
   useEffect(() => {
     handleGetFeed();
+    handlePostCount();
   }, []);
 
   return {
     loading,
+    postCount,
+    handlePostCount,
     feed,
     handleGetFeed,
     handleCreatePost,

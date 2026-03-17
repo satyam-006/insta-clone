@@ -76,7 +76,7 @@ const Register = () => {
                 ></i>
               )}
             </div>
-          <button className="button button-primary">Register</button>
+          <button className="button button-secondary">Register</button>
         </form>
         <p>
           Already have an account ? <Link to={"/login"}>Login.</Link>

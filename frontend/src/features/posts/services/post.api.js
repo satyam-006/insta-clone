@@ -30,3 +30,8 @@ export async function postUnLike(postId) {
   const response = await api.post("/unlike/" + postId);
   return response.data;
 }
+
+export async function postCount(){
+  const response = await api.get("/");
+  return response.data;
+}
