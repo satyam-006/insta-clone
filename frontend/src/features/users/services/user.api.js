@@ -19,3 +19,8 @@ export async function unfollowUser(userId) {
   const response = await api.post(`/unfollow/${userId}`);
   return response.data;
 }
+
+export async function getFollowers(){
+  const response = await api.get("/followers")
+  return response.data
+}

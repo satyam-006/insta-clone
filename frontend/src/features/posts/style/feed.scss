@@ -38,6 +38,7 @@
         border-radius: 2rem;
         font-weight: 600;
         border: 1.5px solid transparent;
+        cursor: pointer;
       }
 
       .latest-btn {
@@ -113,12 +114,17 @@
           color: rgb(73, 72, 72);
         }
 
+        .liked {
+          color: #f01039;
+        }
+
         p {
           font-size: 0.9rem;
           font-weight: 500;
         }
       }
     }
+
     p {
       font-weight: 600;
       color: rgb(48, 47, 47);
