@@ -1,6 +1,6 @@
 const express = require("express")
 const identifyUser = require("../middlewares/auth.middleware")
-const { followUserController, unfollowUserController, getUserController } = require("../controllers/user.controller")
+const { followUserController, unfollowUserController, getUserController, userDetailsController } = require("../controllers/user.controller")
 const userRouter = express.Router()
 
 /**
@@ -24,6 +24,8 @@ userRouter.post("/follow/:userId",identifyUser,followUserController)
  * @access Private
  */ 
 userRouter.post("/unfollow/:userId",identifyUser,unfollowUserController)
+
+userRouter.get("/userDetails/:userId",identifyUser,userDetailsController)
 
 
 module.exports = userRouter

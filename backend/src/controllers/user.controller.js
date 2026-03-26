@@ -100,8 +100,21 @@ async function unfollowUserController(req, res) {
   });
 }
 
+async function userDetailsController(req,res){
+  const userId = req.params.userId
+
+  const user = await userModel.findById(userId)
+
+  res.status(200).json({
+    message:"User details fetched successfully",
+    user:user
+  })
+
+}
+
 module.exports = {
   followUserController,
   unfollowUserController,
   getUserController,
+  userDetailsController
 };

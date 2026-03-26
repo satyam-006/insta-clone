@@ -38,6 +38,7 @@ async function registerController(req, res) {
   res.status(201).json({
     message: "User registered successfully",
     user: {
+      id:user._id,
       username: user.username,
       email: user.email,
       bio: user.bio,
@@ -49,9 +50,11 @@ async function registerController(req, res) {
 async function loginController(req, res) {
   const { username, email, password } = req.body;
 
-  const user = await userModel.findOne({
-    $or: [{ username }, { email }],
-  }).select("+password");
+  const user = await userModel
+    .findOne({
+      $or: [{ username }, { email }],
+    })
+    .select("+password");
 
   if (!user) {
     return res.status(404).json({
@@ -76,6 +79,7 @@ async function loginController(req, res) {
   res.status(200).json({
     message: "User loggedIn successfully",
     user: {
+      id:user._id,
       username: user.username,
       email: user.email,
       bio: user.bio,
@@ -90,6 +94,7 @@ async function getMeController(req, res) {
   res.status(200).json({
     message: "User fetched successfully",
     user: {
+      id:user._id,
       username: user.username,
       email: user.email,
       bio: user.bio,
@@ -98,4 +103,14 @@ async function getMeController(req, res) {
   });
 }
 
-module.exports = { registerController, loginController, getMeController };
+async function logoutController(req, res) {
+  const token = req.cookies.token;
+
+  res.clearCookie("token", token);
+
+  res.status(200).json({
+    message: "Logout successfully",
+  });
+}
+
+module.exports = { registerController, loginController, getMeController,logoutController };
