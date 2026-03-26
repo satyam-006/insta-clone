@@ -5,9 +5,10 @@ import Feed from "./features/posts/pages/Feed";
 import CreatePost from "./features/posts/pages/CreatePost";
 import Home from "./features/home/pages/Home";
 import UserDeatails from "./features/users/pages/UserDeatails";
-import AllFollows from "./features/users/pages/AllFollows";
 import AccountSetting from "./features/users/pages/AccountSetting";
 import Protected from "./features/auth/components/Protected";
+import AllFollowers from "./features/users/pages/AllFollowers";
+import AllFollowing from "./features/users/pages/AllFollowing";
 
 export const router = createBrowserRouter([
   {
@@ -32,8 +33,12 @@ export const router = createBrowserRouter([
     element:<Protected><UserDeatails/></Protected>
   }
   ,{
-    path:"/user/follows/:userId",
-    element:<Protected><AllFollows/></Protected>
+    path:"/user/followers/:userId",
+    element:<Protected><AllFollowers/></Protected>
+  },
+  ,{
+    path:"/user/following/:userId",
+    element:<Protected><AllFollowing/></Protected>
   },
   {
     path:"/user/settings/:userId",

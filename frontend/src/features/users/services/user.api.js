@@ -24,3 +24,9 @@ export async function getFollowers(){
   const response = await api.get("/followers")
   return response.data
 }
+
+export async function getUserDetails(userId){
+  const response = await api.get(`/userDetails/${userId}`)
+  return response.data
+}
+

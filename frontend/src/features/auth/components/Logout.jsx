@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "../style/logout.scss";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router";
@@ -7,14 +7,15 @@ const Logout = () => {
   const { handleLogout, loading } = useAuth();
   const navigate = useNavigate();
 
-  if (loading) {
-   return <h1>Loading...</h1>;
-  }
+  // if (loading) {
+  //  return <h1>Loading...</h1>;
+  // }
 
   const handleLogoutUser = async () => {
     await handleLogout();
     navigate("/login");
   };
+
 
   return (
     <div className="logout" onClick={handleLogoutUser}>

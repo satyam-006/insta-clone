@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "../style/userdetail.scss";
+import { useParams } from "react-router";
+import { useUser } from "../hooks/useUser";
+import { UserContext } from "../user.context";
 
 const UserDeatails = () => {
+  const params = useParams()
+
+  const {loading,handleGetUserDetails,userDetails} = useUser()
+
+  
+
+  useEffect(()=>{
+    handleGetUserDetails(params.userId)
+  },[])
+
+  if(loading){
+    return <h1>Loading</h1>
+  }
+
+  
   return (
     <div className="user-detail-page">
       <div className="user-top-nav">
@@ -24,13 +42,13 @@ const UserDeatails = () => {
         <div className="user-img-wrapper">
           <div></div>
           <img
-            src="https://images.unsplash.com/photo-1654110455429-cf322b40a906?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src={userDetails?.profileImage}
             alt=""
           />
         </div>
         <div className="profile-content">
           <div className="username">
-            <h2>jordan</h2>
+            <h2>{userDetails?.username}</h2>
             <button className="button button-primary">Follow</button>
           </div>
           <div className="user-stats">
@@ -44,7 +62,7 @@ const UserDeatails = () => {
               33 <span> following</span>
             </p>
           </div>
-          <p className="bio">Lorem ipsum dolor sit amet. lorem</p>
+          <p className="bio">{userDetails?.bio}</p>
         </div>
       </div>
       <div className="user-posts">

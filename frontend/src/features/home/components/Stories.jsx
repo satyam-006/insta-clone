@@ -44,9 +44,9 @@ const Stories = () => {
           </div>
           <p>Add Story</p>
         </div>
-        {arr.map((user) => {
+        {arr.map((user,index) => {
           return (
-            <div className="user-stories">
+            <div key={index} className="user-stories">
               <div className="user-story">
                 <img
                   src={user.img}

@@ -15,7 +15,7 @@
     border: 2px solid rgb(240, 33, 67);
     border-radius: 50%;
     @include flex-center();
-
+    cursor: pointer;
     img {
       transform: scale(0.95);
       width: 3.5rem;
@@ -42,6 +42,7 @@
     margin-bottom: 1rem;
 
     .stats {
+      cursor: pointer;
       @include flex-center();
       flex-direction: column;
       gap: 0.5rem;

@@ -1,11 +1,17 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../user.context";
-import { getUsers, followUser, unfollowUser } from "../services/user.api";
+import {
+  getUsers,
+  followUser,
+  unfollowUser,
+  getUserDetails,
+} from "../services/user.api";
 
 export function useUser() {
   const context = useContext(UserContext);
 
-  const { loading, setLoading, users, setUsers } = context;
+  const { loading, setLoading, users, setUsers, userDetails, setUserDetails } =
+    context;
 
   const handleGetUsers = async () => {
     setLoading(true);
@@ -23,15 +29,24 @@ export function useUser() {
     handleGetUsers();
   };
 
+  const handleGetUserDetails = async (userId) => {
+    setLoading(true)
+    const data = await getUserDetails(userId);
+    setUserDetails(data?.user);
+    setLoading(false)
+  };
+
   useEffect(() => {
     handleGetUsers();
   }, []);
 
   return {
     users,
+    userDetails,
     loading,
     handleGetUsers,
     handleFollowUser,
     handleUnFollowUser,
+    handleGetUserDetails,
   };
 }
